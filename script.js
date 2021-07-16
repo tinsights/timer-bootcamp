@@ -40,6 +40,10 @@ splitTime.innerText = '00:00:00';
 totalTime.innerText = '00:00:00';
 
 startButton.addEventListener('click', () => {
+  startButton.classList.add('right-pressed');
+  setTimeout(() => {
+    startButton.classList.remove('right-pressed');
+  }, 50);
   if (running) {
     clearInterval(timer);
     clearInterval(lapTimer);
@@ -61,6 +65,10 @@ startButton.addEventListener('click', () => {
 });
 
 lapButton.addEventListener('click', () => {
+  lapButton.classList.add('left-pressed');
+  setTimeout(() => {
+    lapButton.classList.remove('left-pressed');
+  }, 50);
   if (!running) {
     totalElapsedTime = 0;
     splitTime.innerText = '00:00:00';
