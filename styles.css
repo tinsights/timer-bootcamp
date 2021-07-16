@@ -5,6 +5,8 @@ body {
 
 .container {
   border: solid black 1px;
+  background: seashell;
+  box-shadow: 5px 5px 5px grey;
 }
 
 .lap-time {

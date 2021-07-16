@@ -8,13 +8,7 @@ const lapButton = document.createElement('button');
 const splitTime = document.createElement('p');
 const totalTime = document.createElement('p');
 
-// startButton.innerText = 'Start';
-// stopButton.innerText = 'Stop';
-// resetButton.innerText = 'Reset';
-// lapButton.innerText = 'Lap';
-
-mainContainer.id = 'main-container';
-
+mainContainer.className = 'container';
 leftContainer.className = 'left';
 lapTimeDisplay.classList.add('container', 'lap-time');
 rightContainer.className = 'right';
