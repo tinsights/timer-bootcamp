@@ -4,16 +4,14 @@ const rightContainer = document.createElement('div');
 const lapTimeDisplay = document.createElement('div');
 const elapsedTimeDisplay = document.createElement('div');
 const startButton = document.createElement('button');
-const stopButton = document.createElement('button');
-const resetButton = document.createElement('button');
 const lapButton = document.createElement('button');
 const splitTime = document.createElement('p');
 const totalTime = document.createElement('p');
 
-startButton.innerText = 'Start';
-stopButton.innerText = 'Stop';
-resetButton.innerText = 'Reset';
-lapButton.innerText = 'Lap';
+// startButton.innerText = 'Start';
+// stopButton.innerText = 'Stop';
+// resetButton.innerText = 'Reset';
+// lapButton.innerText = 'Lap';
 
 mainContainer.id = 'main-container';
 
@@ -21,10 +19,8 @@ leftContainer.className = 'left';
 lapTimeDisplay.classList.add('container', 'lap-time');
 rightContainer.className = 'right';
 elapsedTimeDisplay.classList.add('container', 'elapsed-time');
-startButton.classList.add('four-buttons');
-stopButton.classList.add('four-buttons');
-resetButton.classList.add('four-buttons');
-lapButton.classList.add('four-buttons');
+startButton.classList.add('start', 'button');
+lapButton.classList.add('lap', 'button');
 
 elapsedTimeDisplay.appendChild(totalTime);
 elapsedTimeDisplay.appendChild(splitTime);
@@ -32,10 +28,7 @@ elapsedTimeDisplay.appendChild(splitTime);
 leftContainer.appendChild(lapTimeDisplay);
 rightContainer.appendChild(elapsedTimeDisplay);
 rightContainer.appendChild(startButton);
-rightContainer.appendChild(stopButton);
-rightContainer.appendChild(resetButton);
 rightContainer.appendChild(lapButton);
-
 mainContainer.appendChild(leftContainer);
 mainContainer.appendChild(rightContainer);
 document.body.appendChild(mainContainer);
@@ -43,19 +36,26 @@ document.body.appendChild(mainContainer);
 let totalElapsedTime = 0;
 let lapCounter = 0;
 const splitTimes = [0];
-
+let running = false;
 let timer;
 let lapTimer;
 
 splitTime.innerText = '00:00:00';
 totalTime.innerText = '00:00:00';
 
-stopButton.addEventListener('click', () => {
-  clearInterval(timer);
-  clearInterval(lapTimer);
-});
+// startButton.addEventListener('dblclick', () => {
+//   clearInterval(timer);
+//   clearInterval(lapTimer);
+// });
 
 startButton.addEventListener('click', () => {
+  if (running) {
+    clearInterval(timer);
+    clearInterval(lapTimer);
+    running = false;
+    return;
+  }
+  running = true;
   timer = setInterval(() => {
     totalElapsedTime += 1;
     const hours = Math.floor(totalElapsedTime / 3600);
@@ -69,19 +69,31 @@ startButton.addEventListener('click', () => {
   }, 1000);
 });
 
-resetButton.addEventListener('click', () => {
-  totalElapsedTime = 0;
-  splitTime.innerText = '00:00:00';
-  totalTime.innerText = '00:00:00';
-  while (lapTimeDisplay.lastChild) {
-    lapTimeDisplay.lastChild.remove();
-  }
-  clearInterval(timer);
-  splitTimes.length = 1;
-  lapCounter = 0;
-});
+// resetButton.addEventListener('click', () => {
+// totalElapsedTime = 0;
+// splitTime.innerText = '00:00:00';
+// totalTime.innerText = '00:00:00';
+// while (lapTimeDisplay.lastChild) {
+//   lapTimeDisplay.lastChild.remove();
+// }
+// clearInterval(timer);
+// splitTimes.length = 1;
+// lapCounter = 0;
+// });
 
 lapButton.addEventListener('click', () => {
+  if (!running) {
+    totalElapsedTime = 0;
+    splitTime.innerText = '00:00:00';
+    totalTime.innerText = '00:00:00';
+    while (lapTimeDisplay.lastChild) {
+      lapTimeDisplay.lastChild.remove();
+    }
+    clearInterval(timer);
+    splitTimes.length = 1;
+    lapCounter = 0;
+    return;
+  }
   lapCounter += 1;
   splitTime.innerText = '00:00:00';
   splitTimes.push(totalElapsedTime);

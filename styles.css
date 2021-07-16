@@ -4,34 +4,59 @@ body {
 }
 
 .container {
-  background-color: grey;
   border: solid black 1px;
 }
 
 .lap-time {
   display: inline-block;
+  background: navy;
   width: 200px;
   height: 500px;
+  color: white;
 }
 
-.four-buttons {
-  display: inline-block;
-  background-color: white;
-  width: 200px;
-  height: 100px;
-  margin: 20px;
+.button {
+  border: solid black 3px;
+  width: 40px;
+  height: 20px;
+  border-radius: 40%;
+}
+.start {
+  background: black;
+  position: absolute;
+  display: block;
+  top: 138px;
+  left: 327px;
+  transform: rotate(45deg);
+  z-index: 1;
+}
+
+.lap {
+  background: black;
+  position: absolute;
+  top: 138px;
+  left: 171px;
+  font-size: 10px;
+  transform: rotate(-45deg);
+  z-index: 2;
 }
 
 .elapsed-time {
-  display: block;
-  width: 500px;
-  height: 100px;
-  margin: 0 0 100px 0;
+  display: inline-block;
+  position: relative;
+  margin: 100px auto;
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  background: seashell;
+  border: solid 10px black;
+  z-index: 1;
 }
 .right {
   display: inline-block;
   vertical-align: top;
   text-align: center;
+  position: relative;
   padding: 20px;
   height: 500px;
   width: 500px;
