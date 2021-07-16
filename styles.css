@@ -30,6 +30,7 @@ body {
 }
 .right {
   display: inline-block;
+  vertical-align: top;
   text-align: center;
   padding: 20px;
   height: 500px;
@@ -37,6 +38,7 @@ body {
 }
 .left {
   display: inline-block;
+  vertical-align: top;
   text-align: center;
   padding: 20px;
   height: 500px;
