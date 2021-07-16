@@ -43,6 +43,7 @@ document.body.appendChild(mainContainer);
 let totalElapsedTime = 0;
 let lapCounter = 0;
 const splitTimes = [0];
+
 let timer;
 let lapTimer;
 
@@ -70,11 +71,14 @@ startButton.addEventListener('click', () => {
 
 resetButton.addEventListener('click', () => {
   totalElapsedTime = 0;
-  elapsedTimeDisplay.innerText = '00:00:00';
+  splitTime.innerText = '00:00:00';
+  totalTime.innerText = '00:00:00';
   while (lapTimeDisplay.lastChild) {
     lapTimeDisplay.lastChild.remove();
   }
   clearInterval(timer);
+  splitTimes.length = 1;
+  lapCounter = 0;
 });
 
 lapButton.addEventListener('click', () => {
