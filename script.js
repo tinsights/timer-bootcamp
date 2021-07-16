@@ -21,6 +21,8 @@ rightContainer.className = 'right';
 elapsedTimeDisplay.classList.add('container', 'elapsed-time');
 startButton.classList.add('start', 'button');
 lapButton.classList.add('lap', 'button');
+totalTime.className = 'running-time';
+splitTime.className = 'running-lap-time';
 
 elapsedTimeDisplay.appendChild(totalTime);
 elapsedTimeDisplay.appendChild(splitTime);
@@ -43,11 +45,6 @@ let lapTimer;
 splitTime.innerText = '00:00:00';
 totalTime.innerText = '00:00:00';
 
-// startButton.addEventListener('dblclick', () => {
-//   clearInterval(timer);
-//   clearInterval(lapTimer);
-// });
-
 startButton.addEventListener('click', () => {
   if (running) {
     clearInterval(timer);
@@ -68,18 +65,6 @@ startButton.addEventListener('click', () => {
     splitTime.innerText = `${Math.floor(hours / 10)}${hours % 10}:${Math.floor(minutes / 10) % 6}${minutes % 10}:${Math.floor(((totalElapsedTime - splitTimes[lapCounter]) / 10) % 6)}${Math.floor((totalElapsedTime - splitTimes[lapCounter]) % 10)}`;
   }, 1000);
 });
-
-// resetButton.addEventListener('click', () => {
-// totalElapsedTime = 0;
-// splitTime.innerText = '00:00:00';
-// totalTime.innerText = '00:00:00';
-// while (lapTimeDisplay.lastChild) {
-//   lapTimeDisplay.lastChild.remove();
-// }
-// clearInterval(timer);
-// splitTimes.length = 1;
-// lapCounter = 0;
-// });
 
 lapButton.addEventListener('click', () => {
   if (!running) {
