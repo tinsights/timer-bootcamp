@@ -34,7 +34,7 @@ body {
   border-radius: 40%;
 }
 .start {
-  background: black;
+  background: grey;
   position: absolute;
   display: block;
   top: 138px;
@@ -44,7 +44,7 @@ body {
 }
 
 .lap {
-  background: black;
+  background: grey;
   position: absolute;
   top: 138px;
   left: 171px;
