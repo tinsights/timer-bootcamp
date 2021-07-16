@@ -3,9 +3,15 @@ body {
   text-align: center;
 }
 
+.main {
+  width: 1000px;
+  margin: auto;
+  background: seashell;
+  border: solid black 1px;
+  box-shadow: 5px 5px 5px grey;
+}
 .container {
   border: solid black 1px;
-  background: seashell;
   box-shadow: 5px 5px 5px grey;
 }
 

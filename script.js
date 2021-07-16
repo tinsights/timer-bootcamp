@@ -8,7 +8,7 @@ const lapButton = document.createElement('button');
 const splitTime = document.createElement('p');
 const totalTime = document.createElement('p');
 
-mainContainer.className = 'container';
+mainContainer.classList.add('main', 'container');
 leftContainer.className = 'left';
 lapTimeDisplay.classList.add('container', 'lap-time');
 rightContainer.className = 'right';
